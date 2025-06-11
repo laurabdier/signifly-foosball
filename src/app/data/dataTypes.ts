@@ -7,6 +7,7 @@ export type Team = {
     id: number | string;
     name: string;
     memberIds: number[];
+    members: Player[];
 }
 
 export type Game = {

@@ -41,16 +41,52 @@ export const teams: Team[] = [
         id: 1,
         name: "America",
         memberIds: [1, 2],
+        members: [{
+            id: 1,
+            name: "Mandi",
+        },
+        {
+            id: 2,
+            name: "Kait",
+        }]
     },
     {
         id: 2,
         name: "Denmark",
         memberIds: [3, 4, 5, 6],
+        members: [
+            {
+                id: 3,
+                name: "Kirsten",
+            },
+            {
+                id: 4,
+                name: "Petra"
+            },
+            {
+                id: 5,
+                name: "Alex",
+            },
+            {
+                id: 6,
+                name: "Antonina"
+            },
+        ]
     },
     {
         id: 3,
         name: "France",
         memberIds: [7, 8],
+        members: [
+            {
+                id: 7,
+                name: "Christelle"
+            },
+            {
+                id: 8,
+                name: "Jenn"
+            },
+        ]
     }
 ]
 
@@ -72,12 +108,38 @@ export const tournaments: Tournament[] = [
                     id: 1,
                     name: "America",
                     memberIds: [1, 2],
+                    members: [{
+                        id: 1,
+                        name: "Mandi",
+                    },
+                    {
+                        id: 2,
+                        name: "Kait",
+                    }]
                 },
                 scoreA: 10,
                 teamB: {
                     id: 2,
                     name: "Denmark",
                     memberIds: [3, 4, 5, 6],
+                    members: [
+                        {
+                            id: 3,
+                            name: "Kirsten",
+                        },
+                        {
+                            id: 4,
+                            name: "Petra"
+                        },
+                        {
+                            id: 5,
+                            name: "Alex",
+                        },
+                        {
+                            id: 6,
+                            name: "Antonina"
+                        },
+                    ]
                 },
                 scoreB: 6
             },
@@ -89,12 +151,40 @@ export const tournaments: Tournament[] = [
                     id: 3,
                     name: "France",
                     memberIds: [7, 8],
+                    members: [
+                        {
+                            id: 7,
+                            name: "Christelle"
+                        },
+                        {
+                            id: 8,
+                            name: "Jenn"
+                        },
+                    ]
                 },
                 scoreA: 7,
                 teamB: {
                     id: 2,
                     name: "Denmark",
                     memberIds: [3, 4, 5, 6],
+                    members: [
+                        {
+                            id: 3,
+                            name: "Kirsten",
+                        },
+                        {
+                            id: 4,
+                            name: "Petra"
+                        },
+                        {
+                            id: 5,
+                            name: "Alex",
+                        },
+                        {
+                            id: 6,
+                            name: "Antonina"
+                        },
+                    ]
                 },
                 scoreB: 10
             },
@@ -106,12 +196,30 @@ export const tournaments: Tournament[] = [
                     id: 1,
                     name: "America",
                     memberIds: [1, 2],
+                    members: [{
+                        id: 1,
+                        name: "Mandi",
+                    },
+                    {
+                        id: 2,
+                        name: "Kait",
+                    }]
                 },
                 scoreA: 10,
                 teamB: {
                     id: 3,
                     name: "France",
                     memberIds: [7, 8],
+                    members: [
+                        {
+                            id: 7,
+                            name: "Christelle"
+                        },
+                        {
+                            id: 8,
+                            name: "Jenn"
+                        },
+                    ]
                 },
                 scoreB: 5
             }
@@ -134,12 +242,38 @@ export const tournaments: Tournament[] = [
                     id: 1,
                     name: "America",
                     memberIds: [1, 2],
+                    members: [{
+                        id: 1,
+                        name: "Mandi",
+                    },
+                    {
+                        id: 2,
+                        name: "Kait",
+                    }]
                 },
                 scoreA: 10,
                 teamB: {
                     id: 2,
                     name: "Denmark",
                     memberIds: [3, 4, 5, 6],
+                    members: [
+                        {
+                            id: 3,
+                            name: "Kirsten",
+                        },
+                        {
+                            id: 4,
+                            name: "Petra"
+                        },
+                        {
+                            id: 5,
+                            name: "Alex",
+                        },
+                        {
+                            id: 6,
+                            name: "Antonina"
+                        },
+                    ]
                 },
                 scoreB: 9
             },
@@ -151,12 +285,40 @@ export const tournaments: Tournament[] = [
                     id: 3,
                     name: "France",
                     memberIds: [7, 8],
+                    members: [
+                        {
+                            id: 7,
+                            name: "Christelle"
+                        },
+                        {
+                            id: 8,
+                            name: "Jenn"
+                        },
+                    ]
                 },
                 scoreA: 4,
                 teamB: {
                     id: 2,
                     name: "Denmark",
                     memberIds: [3, 4, 5, 6],
+                    members: [
+                        {
+                            id: 3,
+                            name: "Kirsten",
+                        },
+                        {
+                            id: 4,
+                            name: "Petra"
+                        },
+                        {
+                            id: 5,
+                            name: "Alex",
+                        },
+                        {
+                            id: 6,
+                            name: "Antonina"
+                        },
+                    ]
                 },
                 scoreB: 10
             },
@@ -167,12 +329,30 @@ export const tournaments: Tournament[] = [
                     id: 1,
                     name: "America",
                     memberIds: [1, 2],
+                    members: [{
+                        id: 1,
+                        name: "Mandi",
+                    },
+                    {
+                        id: 2,
+                        name: "Kait",
+                    }]
                 },
                 scoreA: 0,
                 teamB: {
                     id: 3,
                     name: "France",
                     memberIds: [7, 8],
+                    members: [
+                        {
+                            id: 7,
+                            name: "Christelle"
+                        },
+                        {
+                            id: 8,
+                            name: "Jenn"
+                        },
+                    ]
                 },
                 scoreB: 0
             }

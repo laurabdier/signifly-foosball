@@ -34,6 +34,7 @@ export default function CreateTeamModal({
       id: `${teamName}-${selectedPlayers.map((sp) => sp.id).join("-")}`,
       name: teamName,
       memberIds: selectedPlayers.map((sp) => sp.id),
+      members: selectedPlayers,
     });
     close();
   };

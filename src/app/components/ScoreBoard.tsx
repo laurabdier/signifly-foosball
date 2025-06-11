@@ -27,6 +27,9 @@ export default function ScoreBoard({ tournament }: { tournament: Tournament }) {
                 <th className="py-3 px-8 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                   Team
                 </th>
+                <th className="py-3 px-8 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                  Players
+                </th>
                 <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                   Won
                 </th>
@@ -52,6 +55,13 @@ export default function ScoreBoard({ tournament }: { tournament: Tournament }) {
                     <div className="justify-left item-center flex gap-4">
                       <div className={`w-4 h-4 rounded-full bg-[#80D8C3]`} />
                       <span> {team.name}</span>
+                    </div>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm ">
+                    <div className="justify-left item-center flex gap-4">
+                      {team.members.map((member) => (
+                        <span key={member.id}>{member.name}</span>
+                      ))}
                     </div>
                   </td>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">

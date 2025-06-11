@@ -4,27 +4,27 @@ import Link from "next/link";
 import { Tournament } from "../data/dataTypes";
 
 export default function Banner({ tournament }: { tournament?: Tournament }) {
-  if (!tournament) {
-    return (
-      <div className="bg-blue-500 w-full flex p-6 rounded-xl text-white justify-center font-bold items-center gap-4">
-        <h2>No Tournament planned yet</h2>
-        <Link
-          href="/create-tournament"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-        >
-          Create Tournament
-        </Link>
-      </div>
-    );
-  }
-
-  const nextGame = tournament.games.filter(
+  const nextGame = tournament?.games.filter(
     (game) =>
       !game.endDate &&
       isAfter(game.startDate, new Date()) &&
       game.scoreA < 10 &&
       game.scoreB < 10
   )[0];
+
+  if (!tournament || !nextGame) {
+    return (
+      <div className="bg-[#344d7c] flex-col w-full flex p-6 rounded-xl text-white justify-center font-bold items-center gap-4">
+        <h2>No Tournament planned yet</h2>
+        <Link
+          href="/create-tournament"
+          className="border-2 border-white bg-white text-[#344d7c] hover:text-white px-4 py-2 rounded-lg hover:bg-blue-700 hover:border-blue-700 cursor-pointer hover:shadow"
+        >
+          Create Tournament
+        </Link>
+      </div>
+    );
+  }
 
   const isNextGameinProgress =
     !nextGame.endDate &&
