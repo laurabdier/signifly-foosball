@@ -8,7 +8,6 @@ import { generateTeamPairs } from "./scheduleGames.utils";
 import { format, isBefore } from "date-fns";
 import { useAppContext } from "../context/Appcontext";
 import Link from "next/link";
-// import { redirect } from "next/navigation";
 
 export default function CreateTournamentPage() {
   const { addTournament, tournaments } = useAppContext();
@@ -16,6 +15,7 @@ export default function CreateTournamentPage() {
   const next = () => setStep((s) => s + 1);
   const back = () => setStep((s) => s - 1);
 
+  const [name, setName] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [teams, setTeams] = useState<Team[]>([]);
   const [games, setGames] = useState<Game[]>([]);
@@ -54,7 +54,6 @@ export default function CreateTournamentPage() {
     }
   };
 
-  console.log("l58 dans create", tournaments);
   return (
     <div className="max-w-4xl mx-auto py-10 px-4">
       <h1 className="text-2xl font-bold mb-6">
@@ -64,6 +63,8 @@ export default function CreateTournamentPage() {
 
       {step === 1 && (
         <TournamentForm
+          name={name}
+          setName={setName}
           startDate={startDate}
           setStartDate={setStartDate}
           teams={teams}
@@ -74,13 +75,12 @@ export default function CreateTournamentPage() {
 
       <div className="flex justify-between mt-16">
         {step === 1 ? (
-          <button
-            onClick={back}
-            className="select-none rounded-lg bg-gray-600 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
-            type="button"
+          <Link
+            href={"/"}
+            className="select-none rounded-lg bg-gray-900 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
           >
             Cancel
-          </button>
+          </Link>
         ) : (
           <button
             onClick={back}
@@ -92,35 +92,22 @@ export default function CreateTournamentPage() {
           </button>
         )}
         {step === 3 ? (
-          <>
-            <button
-              onClick={() => {
-                addTournament({
-                  id: `${format(startDate, "dd-MM-yyyy")}`,
-                  startDate,
-                  teamIds: teams.map((t) => t.id),
-                  games,
-                });
-              }}
-              className="select-none cursor-pointer rounded-lg bg-blue-600 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
-              type="button"
-            >
-              Create Tournament
-            </button>
-            <Link
-              href={"/"}
-              onNavigate={() =>
-                addTournament({
-                  id: `${format(startDate, "dd-MM-yyyy")}`,
-                  startDate,
-                  teamIds: teams.map((t) => t.id),
-                  games,
-                })
-              }
-            >
-              Go to home page
-            </Link>
-          </>
+          <Link
+            href={"/"}
+            className="select-none cursor-pointer rounded-lg bg-blue-600 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
+            onNavigate={() =>
+              addTournament({
+                id: `${format(startDate, "dd-MM-yyyy")}`,
+                name: "",
+                startDate,
+                teamIds: teams.map((t) => t.id),
+                teams,
+                games,
+              })
+            }
+          >
+            Create Tournament
+          </Link>
         ) : (
           <button
             onClick={() => goNextStep(step + 1)}

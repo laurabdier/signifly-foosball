@@ -6,13 +6,17 @@ import { players } from "../data/data";
 import { format } from "date-fns";
 
 type Props = {
+  name: string;
   startDate: Date;
   teams: Team[];
+  setName: (name: string) => void;
   setStartDate: (date: Date) => void;
   setTeams: (teams: Team[]) => void;
 };
 
 export default function TournamentForm({
+  name,
+  setName,
   startDate,
   setStartDate,
   teams,
@@ -27,6 +31,15 @@ export default function TournamentForm({
   return (
     <div className="flex flex-col gap-4 w-full h-full">
       <div className="bg-white p-4 rounded-xl shadow mb-6 space-y-4">
+        <div>
+          <label className="block font-medium mb-1">Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border rounded px-3 py-2"
+          />
+        </div>
         <div>
           <label className="block font-medium mb-1">Start Date</label>
           <input

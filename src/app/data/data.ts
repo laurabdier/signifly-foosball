@@ -54,15 +54,15 @@ export const teams: Team[] = [
     }
 ]
 
-
-
 export const tournaments: Tournament[] = [
     {
         id: "1",
+        name: "New Year Foosball Tournament",
         startDate: (new Date("01/01/2025")),
         teamIds: [
            1, 2, 3
         ],
+        teams,
         games: [
             {
                 id: "1-1-1",
@@ -119,10 +119,12 @@ export const tournaments: Tournament[] = [
     },
     {
         id: "2",
+        name: "Mid Summer Tournament",
         startDate: new Date("10/06/2025"),
         teamIds: [
            1, 2, 3
         ],
+        teams,
         games: [
             {
                 id: "4-1-2",

@@ -27,8 +27,6 @@ export default function AdminPage() {
             game.scoreB < 10
         );
 
-        console.log("check 27", tournament.id, gamesInProgress);
-
         return (
           <div key={tournament.id} className="flex flex-col w-full gap-4">
             <span>
