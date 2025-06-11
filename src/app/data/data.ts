@@ -95,6 +95,7 @@ export const tournaments: Tournament[] = [
         id: "1",
         name: "New Year Foosball Tournament",
         startDate: (new Date("01/01/2025")),
+        endDate: new Date("01/01/2025"),
         teamIds: [
            1, 2, 3
         ],
@@ -103,7 +104,6 @@ export const tournaments: Tournament[] = [
             {
                 id: "1-1-1",
                 startDate: new Date("01/01/2025 14:15:00"),
-                endDate: new Date("01/01/2025 14:32:00"),
                 teamA: {
                     id: 1,
                     name: "America",
@@ -146,7 +146,6 @@ export const tournaments: Tournament[] = [
             {
                 id: "2-3-2",
                 startDate: new Date("01/01/2025 14:50:00"),
-                endDate: new Date("01/01/2025 15:05:00"),
                 teamA: {
                     id: 3,
                     name: "France",
@@ -191,7 +190,6 @@ export const tournaments: Tournament[] = [
             {
                 id: "3-1-3",
                 startDate: new Date("01/01/2025 16:10:00"),
-                endDate: new Date("01/01/2025 16:33:00"),
                 teamA: {
                     id: 1,
                     name: "America",
@@ -228,7 +226,7 @@ export const tournaments: Tournament[] = [
     {
         id: "2",
         name: "Mid Summer Tournament",
-        startDate: new Date("10/06/2025"),
+        startDate: new Date("2025-06-10"),
         teamIds: [
            1, 2, 3
         ],
@@ -236,8 +234,7 @@ export const tournaments: Tournament[] = [
         games: [
             {
                 id: "4-1-2",
-                startDate: new Date("10/06/2025 10:20"),
-                endDate: new Date("10/06/2025 10:44"),
+                startDate: new Date("2025-06-10 10:20"),
                 teamA: {
                     id: 1,
                     name: "America",
@@ -279,8 +276,7 @@ export const tournaments: Tournament[] = [
             },
             {
                 id: "5-3-2",
-                startDate: new Date("11/06/2025 12:15"),
-                endDate: new Date("11/06/2025 12:39"),
+                startDate: new Date("2025-06-11 12:15"),
                 teamA: {
                     id: 3,
                     name: "France",
@@ -324,7 +320,7 @@ export const tournaments: Tournament[] = [
             },
             {
                 id: "6-1-3",
-                startDate: new Date("11/06/2025 17:10"),
+                startDate: new Date("2025-06-11 17:10"),
                 teamA: {
                     id: 1,
                     name: "America",

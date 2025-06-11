@@ -16,8 +16,7 @@ export const getTeamRanking = (tournament: Tournament): Record<string, ScoreByTe
         }
     })
 
-    const pastGames = tournament.games.filter(game => game.endDate ||
-        game.scoreA === 10 ||
+    const pastGames = tournament.games.filter(game => game.scoreA === 10 ||
         game.scoreB === 10)
         
 

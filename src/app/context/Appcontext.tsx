@@ -19,10 +19,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const updateGame = (game: Game, tournament: Tournament) => {
-    const filteredGames = [...tournament.games].filter((g) => g.id !== game.id);
     const updatedTournament = {
       ...tournament,
-      games: [...filteredGames, game],
+      games: tournament.games.map((g) => (g.id === game.id ? game : g)),
     };
 
     setTournaments((prev) =>
@@ -30,10 +29,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
-  console.log(
-    "tournamenets:",
-    tournaments.filter((t) => t.name === "Mid Summer Tournament")
-  );
+  console.log("tournamenets:", tournaments);
 
   return (
     <AppContext.Provider

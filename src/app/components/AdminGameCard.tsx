@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Game } from "../data/dataTypes";
-import { format } from "date-fns";
 import { Pencil } from "lucide-react";
 
 export default function AdminGameCard({
@@ -13,7 +12,7 @@ export default function AdminGameCard({
   const [isEditing, setIsEditing] = useState(false);
   const [scoreA, setScoreA] = useState(game.scoreA);
   const [scoreB, setScoreB] = useState(game.scoreB);
-  const { teamA, teamB, startDate } = game;
+  const { teamA, teamB } = game;
 
   const onCancel = () => {
     setScoreA(game.scoreA);
@@ -75,9 +74,7 @@ export default function AdminGameCard({
         <span>{teamB.name}</span>
         <div className={`rounded-full w-1/10 bg-[FFD66B]`} />
       </div>
-      <div className="text-sm text-gray-500">
-        <span>Started at: {format(startDate, "HH:mm")}</span>
-      </div>
+
       {!isEditing ? (
         <button
           onClick={() => setIsEditing(true)}

@@ -1,5 +1,5 @@
 "use client";
-import { isAfter } from "date-fns";
+import { isAfter, isBefore } from "date-fns";
 import Banner from "./components/Banner";
 import { useAppContext } from "./context/Appcontext";
 import ScoreBoard from "./components/ScoreBoard";
@@ -7,17 +7,26 @@ import ScoreBoard from "./components/ScoreBoard";
 export default function Home() {
   const { tournaments } = useAppContext();
 
-  const comingTournaments = tournaments
-    .filter((t) => !t.endDate && isAfter(t.startDate, new Date()))
-    .sort((a, b) => (isAfter(a.startDate, b.startDate) ? 1 : 0));
+  const tournamentInProgress = tournaments.find(
+    (t) =>
+      isBefore(t.startDate, new Date()) &&
+      t.games.some((g) => g.scoreA < 10 && g.scoreB < 10)
+  );
 
-  const tournamentInProgress = comingTournaments[0].endDate
-    ? undefined
-    : comingTournaments[0];
+  const upComingTournament = tournaments.find((t) =>
+    isAfter(t.startDate, new Date())
+  );
+
+  console.log("tournamentsInProgress", tournamentInProgress);
+  console.log("upComingTournaments", upComingTournament);
+
+  const visibleTournament = tournamentInProgress ?? upComingTournament;
+
+  console.log("visibleTournament", visibleTournament);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <Banner tournament={tournamentInProgress} />
+      <Banner tournament={visibleTournament} />
 
       {/* Latest Matches */}
       {/* <div className="mb-4 bg-[#f2f5f9]">

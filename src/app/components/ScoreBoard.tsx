@@ -9,6 +9,7 @@ const getRankLabel = (rank: number) => {
 };
 
 export default function ScoreBoard({ tournament }: { tournament: Tournament }) {
+  console.log("IN THE SCOREBOARD", tournament);
   const scoreByTeam = getTeamRanking(tournament);
   const orderedTeams = Object.values(scoreByTeam).sort((a, b) =>
     a.score > b.score ? 1 : 0
