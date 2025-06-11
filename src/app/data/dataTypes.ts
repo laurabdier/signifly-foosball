@@ -4,13 +4,13 @@ export type Player = {
 }
 
 export type Team = {
-    id: number;
+    id: number | string;
     name: string;
-    memberIds: number[];
+    memberIds: number[] | string[];
 }
 
 export type Game = {
-    id: number;
+    id: string;
     startDate: Date;
     endDate?: Date;
     teamA: Team;
@@ -20,8 +20,9 @@ export type Game = {
 }
 
 export type Tournament = {
-    id: number;
+    id: string;
     startDate: Date;
-    teamIds: number[];
+    endDate?: Date;
+    teamIds: (string | number)[];
     games: Game[]
 }

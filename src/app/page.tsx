@@ -1,27 +1,23 @@
+"use client";
 import { isAfter } from "date-fns";
 import MatchCard from "./components/MatchCard";
 import Sidebar from "./components/Sidebar";
-import { tournaments } from "./data/data";
 import Banner from "./components/Banner";
 import { Game } from "./data/dataTypes";
+import { useAppContext } from "./context/Appcontext";
 
 export default function Home() {
-  const tournament = tournaments
-    .sort((a, b) => (isAfter(a.startDate, b.startDate) ? 1 : 0))
-    .shift();
+  const { tournaments } = useAppContext();
+  const tournament = tournaments.sort((a, b) =>
+    isAfter(a.startDate, b.startDate) ? 1 : 0
+  )[0];
+
+  console.log("tournament checks", tournaments.length);
 
   return (
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
       <main className="flex-1 p-6">
-        {/* Banner */}
-        {/* <div className="rounded-2xl bg-blue-800 p-6 text-white mb-6 flex justify-between items-center">
-          <div>
-            <h2 className="text-2xl font-bold">Foosball Tournament</h2>
-            <p className="text-sm">Team A vs Team B · 5:00 PM · Office</p>
-          </div>
-        </div> */}
-
         <Banner tournament={tournament} />
 
         {/* Latest Matches */}

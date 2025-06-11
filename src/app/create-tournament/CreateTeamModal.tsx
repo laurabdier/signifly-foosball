@@ -31,7 +31,7 @@ export default function CreateTeamModal({
       return;
     }
     onSave({
-      id: Date.now(),
+      id: `${teamName}-${selectedPlayers.map((sp) => sp.id).join("-")}`,
       name: teamName,
       memberIds: selectedPlayers.map((sp) => sp.id),
     });

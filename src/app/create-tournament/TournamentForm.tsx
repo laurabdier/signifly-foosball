@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Team } from "../data/dataTypes";
 import CreateTeamModal from "./CreateTeamModal";
 import { players } from "../data/data";
+import { format } from "date-fns";
 
 type Props = {
   startDate: Date;
@@ -30,8 +31,12 @@ export default function TournamentForm({
           <label className="block font-medium mb-1">Start Date</label>
           <input
             type="date"
-            value={startDate.toString()}
-            onChange={(e) => setStartDate(new Date(e.target.value))}
+            value={format(startDate, "yyyy-MM-dd")}
+            onChange={(e) => {
+              console.log("set date ", new Date(e.target.value));
+              setStartDate(new Date(e.target.value));
+              console.log("new start date ", startDate);
+            }}
             className="w-full border rounded px-3 py-2"
           />
         </div>
@@ -53,7 +58,6 @@ export default function TournamentForm({
           </select>
         </div> */}
       </div>
-
       <div className="bg-white p-4 rounded-xl shadow">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-bold">Teams</h2>

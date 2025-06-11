@@ -58,14 +58,14 @@ export const teams: Team[] = [
 
 export const tournaments: Tournament[] = [
     {
-        id: 1,
+        id: "1",
         startDate: (new Date("01/01/2025")),
         teamIds: [
            1, 2, 3
         ],
         games: [
             {
-                id: 1,
+                id: "1-1-1",
                 startDate: new Date("01/01/2025 14:15:00"),
                 endDate: new Date("01/01/2025 14:32:00"),
                 teamA: {
@@ -82,7 +82,7 @@ export const tournaments: Tournament[] = [
                 scoreB: 6
             },
             {
-                id: 2,
+                id: "2-3-2",
                 startDate: new Date("01/01/2025 14:50:00"),
                 endDate: new Date("01/01/2025 15:05:00"),
                 teamA: {
@@ -99,7 +99,7 @@ export const tournaments: Tournament[] = [
                 scoreB: 10
             },
             {
-                id: 3,
+                id: "3-1-3",
                 startDate: new Date("01/01/2025 16:10:00"),
                 endDate: new Date("01/01/2025 16:33:00"),
                 teamA: {
@@ -118,14 +118,14 @@ export const tournaments: Tournament[] = [
         ]
     },
     {
-        id: 2,
+        id: "2",
         startDate: new Date("01/06/2025"),
         teamIds: [
            1, 2, 3
         ],
         games: [
             {
-                id: 4,
+                id: "4-1-2",
                 startDate: new Date("01/06/2025 10:20"),
                 endDate: new Date("01/06/2025 10:44"),
                 teamA: {
@@ -142,7 +142,7 @@ export const tournaments: Tournament[] = [
                 scoreB: 9
             },
             {
-                id: 5,
+                id: "5-3-2",
                 startDate: new Date("02/06/2025 12:15"),
                 endDate: new Date("02/06/2025 12:39"),
                 teamA: {
@@ -159,7 +159,7 @@ export const tournaments: Tournament[] = [
                 scoreB: 10
             },
             {
-                id: 6,
+                id: "6-1-3",
                 startDate: new Date("02/06/2025 13:10"),
                 endDate: new Date("02/06/2025 13:31"),
                 teamA: {
