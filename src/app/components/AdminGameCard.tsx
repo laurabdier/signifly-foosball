@@ -21,7 +21,11 @@ export default function AdminGameCard({
   };
 
   const onSave = () => {
-    onUpdateGame(game);
+    onUpdateGame({
+      ...game,
+      scoreA,
+      scoreB,
+    });
     setIsEditing(false);
   };
 

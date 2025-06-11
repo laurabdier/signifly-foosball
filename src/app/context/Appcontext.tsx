@@ -19,15 +19,21 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const updateGame = (game: Game, tournament: Tournament) => {
-    const updatedGames = tournament.games
-      .filter((g) => g.id !== game.id)
-      .push(game);
-    const updatedTournament = { ...tournament, game: updatedGames };
+    const filteredGames = [...tournament.games].filter((g) => g.id !== game.id);
+    const updatedTournament = {
+      ...tournament,
+      games: [...filteredGames, game],
+    };
 
     setTournaments((prev) =>
       prev.map((t) => (t.id === tournament.id ? updatedTournament : t))
     );
   };
+
+  console.log(
+    "tournamenets:",
+    tournaments.filter((t) => t.name === "Mid Summer Tournament")
+  );
 
   return (
     <AppContext.Provider
