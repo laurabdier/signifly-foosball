@@ -1,12 +1,13 @@
 "use client";
 import React, { createContext, useContext, useState } from "react";
-import { Tournament } from "../data/dataTypes";
+import { Game, Tournament } from "../data/dataTypes";
 import { tournaments as t } from "../data/data";
 
 type AppContextType = {
   tournaments: Tournament[];
   setTournaments: (tournament: Tournament[]) => void;
   addTournament: (tournament: Tournament) => void;
+  updateGame: (game: Game, tournament: Tournament) => void;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -17,7 +18,16 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     setTournaments((prev) => [...prev, tournament]);
   };
 
-  console.log("start 55 ", tournaments);
+  const updateGame = (game: Game, tournament: Tournament) => {
+    const updatedGames = tournament.games
+      .filter((g) => g.id !== game.id)
+      .push(game);
+    const updatedTournament = { ...tournament, game: updatedGames };
+
+    setTournaments((prev) =>
+      prev.map((t) => (t.id === tournament.id ? updatedTournament : t))
+    );
+  };
 
   return (
     <AppContext.Provider
@@ -25,6 +35,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         tournaments,
         setTournaments,
         addTournament,
+        updateGame,
       }}
     >
       {children}

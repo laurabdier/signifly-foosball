@@ -119,15 +119,15 @@ export const tournaments: Tournament[] = [
     },
     {
         id: "2",
-        startDate: new Date("01/06/2025"),
+        startDate: new Date("10/06/2025"),
         teamIds: [
            1, 2, 3
         ],
         games: [
             {
                 id: "4-1-2",
-                startDate: new Date("01/06/2025 10:20"),
-                endDate: new Date("01/06/2025 10:44"),
+                startDate: new Date("10/06/2025 10:20"),
+                endDate: new Date("10/06/2025 10:44"),
                 teamA: {
                     id: 1,
                     name: "America",
@@ -143,8 +143,8 @@ export const tournaments: Tournament[] = [
             },
             {
                 id: "5-3-2",
-                startDate: new Date("02/06/2025 12:15"),
-                endDate: new Date("02/06/2025 12:39"),
+                startDate: new Date("11/06/2025 12:15"),
+                endDate: new Date("11/06/2025 12:39"),
                 teamA: {
                     id: 3,
                     name: "France",
@@ -160,20 +160,19 @@ export const tournaments: Tournament[] = [
             },
             {
                 id: "6-1-3",
-                startDate: new Date("02/06/2025 13:10"),
-                endDate: new Date("02/06/2025 13:31"),
+                startDate: new Date("11/06/2025 17:10"),
                 teamA: {
                     id: 1,
                     name: "America",
                     memberIds: [1, 2],
                 },
-                scoreA: 9,
+                scoreA: 0,
                 teamB: {
                     id: 3,
                     name: "France",
                     memberIds: [7, 8],
                 },
-                scoreB: 10
+                scoreB: 0
             }
         ]
     }
