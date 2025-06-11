@@ -22,18 +22,30 @@ export default function Banner({ tournament }: { tournament?: Tournament }) {
 
   return (
     <div className="bg-[#344d7c] w-full flex-col flex p-6 rounded-xl text-white justify-center font-bold items-center gap-4">
-      <div>
-        <h2 className="text-2xl font-bold">{tournament.name}</h2>
+      <div className="w-full px-20">
+        <h2 className="text-2xl flex justify-center font-bold">
+          {tournament.name}
+        </h2>
         <span className="flex text-sm justify-center">
           {isNextGameinProgress ? "HAPPENING NOW" : "Coming soon"}
         </span>
-        <div className="flex flex-row text-m justify-between">
-          <span className="flex text-m flex-row gap-4">
+        <div className="flex py-4 grow flex-row text-xl justify-between items-center">
+          <span className="flex text-m flex-row gap-4 items-center ">
+            <img
+              className="w-10 h-10"
+              src={`/avatars/${nextGame.teamA.avatar}.svg`}
+              alt={nextGame.teamA.avatar}
+            />
             {nextGame.teamA.name} {nextGame.scoreA}
           </span>
           <span className="flex text-m flex-row">vs</span>
-          <span className="flex text-m flex-row gap-4">
+          <span className="flex text-m flex-row gap-4 items-center">
             {nextGame.scoreB} {nextGame.teamB.name}
+            <img
+              className="w-10 h-10"
+              src={`/avatars/${nextGame.teamB.avatar}.svg`}
+              alt={nextGame.teamB.avatar}
+            />
           </span>
         </div>
 

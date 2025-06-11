@@ -53,23 +53,6 @@ export default function TournamentForm({
             className="w-full border rounded px-3 py-2"
           />
         </div>
-        {/* 
-        
-        Prize => move to step 3
-        
-        <div>
-          <label className="block font-medium mb-1">Prize</label>
-          <select
-            value={prize}
-            onChange={(e) => setPrize(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-          >
-            <option value="">Select a prize</option>
-            <option value="🥇 Pizza Party">Pizza Party</option>
-            <option value="🏆 Trophy">Trophy</option>
-            <option value="🎉 Bragging Rights">Bragging Rights</option>
-          </select>
-        </div> */}
       </div>
       <div className="bg-white p-4 rounded-xl shadow">
         <div className="flex justify-between items-center mb-4">
@@ -94,7 +77,11 @@ export default function TournamentForm({
               key={team.id}
               className="flex justify-between items-center p-3 bg-gray-100 rounded"
             >
-              <div>{team.name}</div>
+              <div className="flex flex-row gap-4 item-center">
+                <img className="w-8 h-8" src={`/avatars/${team.avatar}.svg`} />
+                <span>{team.name}</span>
+              </div>
+
               <div className="space-x-2">
                 <button
                   className="cursor-pointer"

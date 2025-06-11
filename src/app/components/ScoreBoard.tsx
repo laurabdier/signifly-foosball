@@ -16,7 +16,7 @@ export default function ScoreBoard({ tournament }: { tournament: Tournament }) {
   );
 
   return (
-    <div className="container px-4 sm:px-8 py-8 grow">
+    <div className="container px-4 mx-auto sm:px-8 py-8 grow">
       <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div className="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
           <table className="min-w-full leading-normal">
@@ -47,14 +47,17 @@ export default function ScoreBoard({ tournament }: { tournament: Tournament }) {
                 <tr key={team.id}>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <div className="flex">
-                      <div className="flex-shrink-0 w-10 h-10 text-l justify-center item-center flex">
+                      <div className="flex-shrink-0 w-10 h-10 text-3xl justify-center item-center flex">
                         {getRankLabel(i)}
                       </div>
                     </div>
                   </td>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm ">
-                    <div className="justify-left item-center flex gap-4">
-                      <div className={`w-4 h-4 rounded-full bg-[#80D8C3]`} />
+                    <div className="justify-left items-center flex gap-4">
+                      <img
+                        className="w-10 h-10"
+                        src={`/avatars/${team.avatar}.svg`}
+                      />
                       <span> {team.name}</span>
                     </div>
                   </td>

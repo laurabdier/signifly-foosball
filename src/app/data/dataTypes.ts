@@ -5,6 +5,7 @@ export type Player = {
 
 export type Team = {
     id: number | string;
+    avatar: string;
     name: string;
     memberIds: number[];
     members: Player[];

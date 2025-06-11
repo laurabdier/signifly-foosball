@@ -2,6 +2,17 @@
 import { useState } from "react";
 import { Player, Team } from "../data/dataTypes";
 
+const avatars: string[] = [
+  "dog",
+  "parrot",
+  "cat",
+  "snake",
+  "sheep",
+  "pig",
+  "hedgehog",
+  "rhino",
+];
+
 type Props = {
   close: () => void;
   onSave: (team: Team) => void;
@@ -14,6 +25,7 @@ export default function CreateTeamModal({
   availablePlayers = [],
 }: Props) {
   const [teamName, setTeamName] = useState("");
+  const [avatar, setAvatar] = useState("dog");
   const [selectedPlayers, setSelectedPlayers] = useState<Player[]>([]);
 
   const togglePlayer = (player: Player) => {
@@ -33,6 +45,7 @@ export default function CreateTeamModal({
     onSave({
       id: `${teamName}-${selectedPlayers.map((sp) => sp.id).join("-")}`,
       name: teamName,
+      avatar,
       memberIds: selectedPlayers.map((sp) => sp.id),
       members: selectedPlayers,
     });
@@ -54,8 +67,24 @@ export default function CreateTeamModal({
           />
         </div>
 
+        <div className="w-full flex flex-wrap gap-4">
+          {avatars.map((av) => {
+            const isSelected = av === avatar;
+            return (
+              <div key={av} onClick={() => setAvatar(av)}>
+                <img
+                  className={`w-8 h-8 hover:border hover:border-gray-500 rounded-xl cursor-pointer ${
+                    isSelected ? "border border-blue-600" : ""
+                  }`}
+                  src={`/avatars/${av}.svg`}
+                />
+              </div>
+            );
+          })}
+        </div>
+
         <div className="mb-4">
-          <label className="block mb-1 font-medium">Select Players (1–4)</label>
+          <label className="block mb-1 font-medium">Select Players (1-4)</label>
           <div className="grid grid-cols-2 gap-2">
             {availablePlayers.map((player) => (
               <button

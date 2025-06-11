@@ -17,7 +17,6 @@ type ScheduleGameRowProps = {
 const ScheduleGameRow = ({ game, onUpdateGame }: ScheduleGameRowProps) => {
   const { teamA, teamB } = game;
   const [date, setDate] = useState(game.startDate);
-  const [time, setTime] = useState("12:30");
 
   return (
     <div className="bg-white p-4 rounded-xl flex justify-between items-center shadow">
@@ -37,18 +36,6 @@ const ScheduleGameRow = ({ game, onUpdateGame }: ScheduleGameRowProps) => {
           onChange={(e) => {
             setDate(new Date(e.target.value));
             onUpdateGame({ ...game, startDate: new Date(e.target.value) });
-          }}
-          className="w-full border rounded px-3 py-2"
-        />
-      </div>
-
-      <div>
-        <label className="block font-medium mb-1">Date: </label>
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => {
-            setTime(e.target.value);
           }}
           className="w-full border rounded px-3 py-2"
         />

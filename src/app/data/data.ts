@@ -39,6 +39,7 @@ export const players: Player[] = [
 export const teams: Team[] = [
     {
         id: 1,
+        avatar: "parrot",
         name: "America",
         memberIds: [1, 2],
         members: [{
@@ -53,6 +54,7 @@ export const teams: Team[] = [
     {
         id: 2,
         name: "Denmark",
+        avatar: "dog",
         memberIds: [3, 4, 5, 6],
         members: [
             {
@@ -76,6 +78,7 @@ export const teams: Team[] = [
     {
         id: 3,
         name: "France",
+        avatar: "sheep",
         memberIds: [7, 8],
         members: [
             {
@@ -107,6 +110,7 @@ export const tournaments: Tournament[] = [
                 teamA: {
                     id: 1,
                     name: "America",
+                    avatar: "parrot",
                     memberIds: [1, 2],
                     members: [{
                         id: 1,
@@ -121,6 +125,7 @@ export const tournaments: Tournament[] = [
                 teamB: {
                     id: 2,
                     name: "Denmark",
+                    avatar: "dog",
                     memberIds: [3, 4, 5, 6],
                     members: [
                         {
@@ -149,6 +154,7 @@ export const tournaments: Tournament[] = [
                 teamA: {
                     id: 3,
                     name: "France",
+                    avatar: "sheep",
                     memberIds: [7, 8],
                     members: [
                         {
@@ -165,6 +171,7 @@ export const tournaments: Tournament[] = [
                 teamB: {
                     id: 2,
                     name: "Denmark",
+                    avatar: "dog",
                     memberIds: [3, 4, 5, 6],
                     members: [
                         {
@@ -193,6 +200,7 @@ export const tournaments: Tournament[] = [
                 teamA: {
                     id: 1,
                     name: "America",
+                    avatar: "parrot",
                     memberIds: [1, 2],
                     members: [{
                         id: 1,
@@ -207,6 +215,7 @@ export const tournaments: Tournament[] = [
                 teamB: {
                     id: 3,
                     name: "France",
+                    avatar: "sheep",
                     memberIds: [7, 8],
                     members: [
                         {
@@ -238,6 +247,7 @@ export const tournaments: Tournament[] = [
                 teamA: {
                     id: 1,
                     name: "America",
+                    avatar: "parrot",
                     memberIds: [1, 2],
                     members: [{
                         id: 1,
@@ -252,6 +262,7 @@ export const tournaments: Tournament[] = [
                 teamB: {
                     id: 2,
                     name: "Denmark",
+                    avatar: "dog",
                     memberIds: [3, 4, 5, 6],
                     members: [
                         {
@@ -280,6 +291,7 @@ export const tournaments: Tournament[] = [
                 teamA: {
                     id: 3,
                     name: "France",
+                    avatar: "sheep",
                     memberIds: [7, 8],
                     members: [
                         {
@@ -296,6 +308,7 @@ export const tournaments: Tournament[] = [
                 teamB: {
                     id: 2,
                     name: "Denmark",
+                    avatar: "dog",
                     memberIds: [3, 4, 5, 6],
                     members: [
                         {
@@ -320,10 +333,11 @@ export const tournaments: Tournament[] = [
             },
             {
                 id: "6-1-3",
-                startDate: new Date("2025-06-11 17:10"),
+                startDate: new Date("2025-06-13 13:30"),
                 teamA: {
                     id: 1,
                     name: "America",
+                    avatar: "parrot",
                     memberIds: [1, 2],
                     members: [{
                         id: 1,
@@ -338,6 +352,7 @@ export const tournaments: Tournament[] = [
                 teamB: {
                     id: 3,
                     name: "France",
+                    avatar: "sheep",
                     memberIds: [7, 8],
                     members: [
                         {

@@ -10,7 +10,7 @@ import { useAppContext } from "../context/Appcontext";
 import Link from "next/link";
 
 export default function CreateTournamentPage() {
-  const { addTournament, tournaments } = useAppContext();
+  const { addTournament } = useAppContext();
   const [step, setStep] = useState(1);
   const next = () => setStep((s) => s + 1);
   const back = () => setStep((s) => s - 1);
@@ -22,12 +22,7 @@ export default function CreateTournamentPage() {
 
   const isNextStepDisabled = () => {
     if (step === 1) {
-      return isBefore(startDate, new Date()) && teams.length < 2;
-    }
-
-    if (step === 2) {
-      const gameDates = games.map((g) => g.startDate);
-      return new Set(gameDates).size !== games.length;
+      return isBefore(startDate, new Date()) || teams.length < 2 || !name;
     }
 
     return false;
@@ -56,9 +51,7 @@ export default function CreateTournamentPage() {
 
   return (
     <div className="max-w-4xl mx-auto py-10 px-4">
-      <h1 className="text-2xl font-bold mb-6">
-        Create New Tournament {tournaments.length}
-      </h1>
+      <h1 className="text-2xl font-bold mb-6">Create New Tournament</h1>
       <CreateTournamentStepper step={step} />
 
       {step === 1 && (
@@ -98,7 +91,7 @@ export default function CreateTournamentPage() {
             onNavigate={() =>
               addTournament({
                 id: `${format(startDate, "dd-MM-yyyy")}`,
-                name: "",
+                name,
                 startDate,
                 teamIds: teams.map((t) => t.id),
                 teams,
