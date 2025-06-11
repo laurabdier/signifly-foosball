@@ -1,6 +1,5 @@
 "use client";
 import { isAfter } from "date-fns";
-import Sidebar from "./components/Sidebar";
 import Banner from "./components/Banner";
 import { useAppContext } from "./context/Appcontext";
 import ScoreBoard from "./components/ScoreBoard";
@@ -17,13 +16,11 @@ export default function Home() {
     : comingTournaments[0];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <main className="flex-1 p-6">
-        <Banner tournament={tournamentInProgress} />
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <Banner tournament={tournamentInProgress} />
 
-        {/* Latest Matches */}
-        {/* <div className="mb-4 bg-[#f2f5f9]">
+      {/* Latest Matches */}
+      {/* <div className="mb-4 bg-[#f2f5f9]">
           <h3 className="text-lg font-semibold mb-2">Latest Matches</h3>
           <div className="space-y-2">
             {tournamentInProgress &&
@@ -33,10 +30,7 @@ export default function Home() {
           </div>
         </div> */}
 
-        {tournamentInProgress && (
-          <ScoreBoard tournament={tournamentInProgress} />
-        )}
-      </main>
+      {tournamentInProgress && <ScoreBoard tournament={tournamentInProgress} />}
     </div>
   );
 }
