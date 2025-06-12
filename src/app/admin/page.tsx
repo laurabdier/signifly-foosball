@@ -6,12 +6,18 @@ import { Game } from "../data/dataTypes";
 import Link from "next/link";
 import { getTeamRanking } from "../utils/getTeamRanking.utils";
 import { getTournamentStatus, TournamentStatus } from "./admin.utils";
+import { Home } from "lucide-react";
 
 export default function AdminPage() {
   const { tournaments, updateGame } = useAppContext();
 
   return (
     <div className="flex flex-col gap-4">
+      <div className="w-full ">
+        <Link href="/">
+          <Home className="w-6 h-6 text-gray-500 hover:text-blue-300" />
+        </Link>
+      </div>
       <h1 className="text-[#344d7c] font-bold text-xl">
         Update the scoreboard:
       </h1>
@@ -39,13 +45,13 @@ export default function AdminPage() {
                 <div className="text-s flex flex-row gap-4 items-center">
                   <span>Winner: </span>
                   {winners.map((winner) => (
-                    <>
+                    <div key={winner.team.id}>
                       <img
                         className="w-8 h-8"
                         src={`/avatars/${winner.team.avatar}.svg`}
                       />{" "}
                       {winner.team.name}
-                    </>
+                    </div>
                   ))}
                 </div>
               )}

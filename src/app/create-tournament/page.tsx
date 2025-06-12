@@ -86,7 +86,7 @@ export default function CreateTournamentPage() {
         )}
         {step === 3 ? (
           <Link
-            href={"/"}
+            href={"/admin"}
             className="select-none cursor-pointer rounded-lg bg-blue-600 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
             onNavigate={() =>
               addTournament({
