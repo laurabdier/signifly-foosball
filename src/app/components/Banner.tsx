@@ -29,8 +29,9 @@ export default function Banner({ tournament }: { tournament?: Tournament }) {
         <span className="flex text-sm justify-center">
           {isNextGameinProgress ? "HAPPENING NOW" : "Coming soon"}
         </span>
-        <div className="flex py-4 grow flex-row text-xl justify-between items-center">
-          <span className="flex text-m flex-row gap-4 items-center ">
+
+        <div className="flex flex-col md:flex-row py-4 grow text-xl justify-between items-center">
+          <span className="flex flex-col md:flex-row md:gap-4 gap-2 items-center text-sm">
             <img
               className="w-10 h-10"
               src={`/avatars/${nextGame.teamA.avatar}.svg`}
@@ -38,8 +39,10 @@ export default function Banner({ tournament }: { tournament?: Tournament }) {
             />
             {nextGame.teamA.name} {nextGame.scoreA}
           </span>
-          <span className="flex text-m flex-row">vs</span>
-          <span className="flex text-m flex-row gap-4 items-center">
+
+          <span className="flex flex-row my-2 md:my-0 text-sm">vs</span>
+
+          <span className="flex flex-col md:flex-row md:gap-4 gap-2 items-center text-sm">
             {nextGame.scoreB} {nextGame.teamB.name}
             <img
               className="w-10 h-10"

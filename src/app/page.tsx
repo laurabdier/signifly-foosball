@@ -20,7 +20,7 @@ export default function Home() {
   const visibleTournament = tournamentInProgress ?? upComingTournament;
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen w-full bg-gray-50">
       <Banner tournament={visibleTournament} />
       {tournamentInProgress && <ScoreBoard tournament={tournamentInProgress} />}
     </div>
