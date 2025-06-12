@@ -28,25 +28,19 @@ export default function CreateTournamentPage() {
     return false;
   };
 
-  const goNextStep = (nextStep: number) => {
-    if (nextStep === 2) {
-      const teamPairs = generateTeamPairs(teams);
-      setGames(
-        teamPairs.map(([teamA, teamB]) => ({
-          id: `${format(startDate, "dd-MM-yyyy")}-${teamA.id}-${teamB.id}`,
-          teamA,
-          scoreA: 0,
-          teamB,
-          scoreB: 0,
-          startDate,
-        }))
-      );
-      next();
-    }
-
-    if (nextStep === 3) {
-      next();
-    }
+  const goNextStep = () => {
+    const teamPairs = generateTeamPairs(teams);
+    setGames(
+      teamPairs.map(([teamA, teamB]) => ({
+        id: `${format(startDate, "dd-MM-yyyy")}-${teamA.id}-${teamB.id}`,
+        teamA,
+        scoreA: 0,
+        teamB,
+        scoreB: 0,
+        startDate,
+      }))
+    );
+    next();
   };
 
   return (
@@ -84,7 +78,7 @@ export default function CreateTournamentPage() {
             Prev
           </button>
         )}
-        {step === 3 ? (
+        {step === 2 ? (
           <Link
             href={"/admin"}
             className="select-none cursor-pointer rounded-lg bg-blue-600 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
@@ -103,7 +97,7 @@ export default function CreateTournamentPage() {
           </Link>
         ) : (
           <button
-            onClick={() => goNextStep(step + 1)}
+            onClick={() => goNextStep()}
             disabled={isNextStepDisabled()}
             className="select-none cursor-pointer rounded-lg bg-blue-600 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all disabled:opacity-50"
             type="button"

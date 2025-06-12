@@ -1,5 +1,5 @@
 "use client";
-import { UserRound, CalendarClock, Trophy } from "lucide-react";
+import { UserRound, CalendarClock } from "lucide-react";
 
 type Props = {
   step: number;
@@ -16,7 +16,6 @@ const steps = [
     icon: <CalendarClock className="w-6 h-6" />,
     label: "Schedule the games",
   },
-  { id: 3, icon: <Trophy className="w-6 h-6" />, label: "Select a prize!" },
 ];
 
 export const CreateTournamentStepper = ({ step }: Props) => {
