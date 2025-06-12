@@ -31,7 +31,7 @@ export default function AdminPage() {
                 <span>Tournament: </span>
                 <span className="font-bold"> {tournament.name}</span>
               </div>
-              {status === TournamentStatus.PAST && (
+              {status === TournamentStatus.FINISHED && (
                 <div className="text-s flex flex-row gap-4 items-center">
                   <span>Winner: </span>
                   <img

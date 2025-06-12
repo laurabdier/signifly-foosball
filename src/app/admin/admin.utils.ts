@@ -2,7 +2,7 @@ import { isAfter } from "date-fns";
 import { Tournament } from "../data/dataTypes";
 
 export enum TournamentStatus {
-    PAST = "PAST",
+    FINISHED = "FINISHED",
     IN_PROGRESS = "IN_PROGRESS",
     UPCOMING = "UPCOMING",
 }
@@ -21,6 +21,6 @@ export function getTournamentStatus(tournament: Tournament): TournamentStatus {
       }
 
       else {
-        return TournamentStatus.PAST
+        return TournamentStatus.FINISHED
       }
 }
