@@ -21,9 +21,12 @@ export default function AdminPage() {
           const status = getTournamentStatus(tournament);
 
           const scoreByTeam = getTeamRanking(tournament);
-          const winner = Object.values(scoreByTeam).sort((a, b) =>
-            a.score > b.score ? 1 : 0
-          )[0];
+          const maxScore = Object.values(scoreByTeam)
+            .map((t) => t.score)
+            .reduce((a, b) => Math.max(a, b), -Infinity);
+          const winners = Object.values(scoreByTeam).filter(
+            (t) => t.score === maxScore
+          );
 
           return (
             <div key={tournament.id} className="flex flex-col w-full gap-4">
@@ -31,15 +34,26 @@ export default function AdminPage() {
                 <span>Tournament: </span>
                 <span className="font-bold"> {tournament.name}</span>
               </div>
+
               {status === TournamentStatus.FINISHED && (
                 <div className="text-s flex flex-row gap-4 items-center">
                   <span>Winner: </span>
-                  <img
-                    className="w-8 h-8"
-                    src={`/avatars/${winner.team.avatar}.svg`}
-                  />{" "}
-                  {winner.team.name}
+                  {winners.map((winner) => (
+                    <>
+                      <img
+                        className="w-8 h-8"
+                        src={`/avatars/${winner.team.avatar}.svg`}
+                      />{" "}
+                      {winner.team.name}
+                    </>
+                  ))}
                 </div>
+              )}
+              {status === TournamentStatus.IN_PROGRESS && (
+                <p>Tournament in progress:</p>
+              )}
+              {status === TournamentStatus.UPCOMING && (
+                <p>Upcoming tournament</p>
               )}
               {tournament.games.map((game) => (
                 <AdminGameCard
