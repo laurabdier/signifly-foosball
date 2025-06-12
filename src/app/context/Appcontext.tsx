@@ -29,8 +29,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
-  console.log("tournamenets:", tournaments);
-
   return (
     <AppContext.Provider
       value={{

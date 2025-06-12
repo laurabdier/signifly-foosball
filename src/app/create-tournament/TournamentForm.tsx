@@ -46,9 +46,7 @@ export default function TournamentForm({
             type="date"
             value={format(startDate, "yyyy-MM-dd")}
             onChange={(e) => {
-              console.log("set date ", new Date(e.target.value));
               setStartDate(new Date(e.target.value));
-              console.log("new start date ", startDate);
             }}
             className="w-full border rounded px-3 py-2"
           />
