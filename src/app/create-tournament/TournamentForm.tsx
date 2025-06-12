@@ -83,7 +83,9 @@ export default function TournamentForm({
               <div className="space-x-2">
                 <button
                   className="cursor-pointer"
-                  // onClick={() => deleteTeam(team.id)}
+                  onClick={() =>
+                    setTeams([...teams.filter((t) => t.id !== team.id)])
+                  }
                 >
                   🗑️
                 </button>
